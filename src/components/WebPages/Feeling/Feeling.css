@@ -1,6 +1,17 @@
 #fixed-button {
-    position:relative;
+    position:fixed;
     margin-top:30%;
     margin-right: 90%;
     background-color: red; 
+    height: 50px;
+    width: 100px;
+}
+
+#next-button {
+    position:relative;
+    margin-top:30%;
+    margin-left: 90%;
+    background-color: green; 
+    height: 50px;
+    width: 100px;
 }

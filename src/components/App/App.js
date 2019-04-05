@@ -23,7 +23,7 @@ class App extends Component {
      /*  this.setState({
         pizzaDisplay: response.data
       }) */
-    console.log(`got the response`, response);
+    console.log(`got the response`, response.data);
   })
   .catch((error) => {
     console.log('error in getting all pizzas', error);
@@ -31,19 +31,20 @@ class App extends Component {
   })
   }
 
-
+componentDidMount() {
+  this.getAllFeedback(); 
+}
 
   render() {
     return (
       <Router>
       <div className="App">
       <Header />
-      <Route exact path="/" component={Home} /> 
-      <Route path ="/feeling" component={Feeling} />  
-      <Route path ="/understanding" component={Understanding} />  
-      <Route path ="/support" component={Support} /> 
-      <Route path ="/comments" component={Comments} /> 
-
+        <Route exact path="/" component={Home} /> 
+        <Route path ="/feeling" component={Feeling} />  
+        <Route path ="/understanding" component={Understanding} />  
+        <Route path ="/support" component={Support} /> 
+        <Route path ="/comments" component={Comments} /> 
       </div>
     </Router>
     );

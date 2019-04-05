@@ -15,11 +15,13 @@ class Feeling extends Component {
             <div>
                 <form>
                     <label>How are you feeling today?</label> <br /> 
-                    <input name="rating" type="number" placeholder="Insert a number 1-5"/>
+                    <input name="rating" type="text" placeholder="Insert a number 1-5"/>
+                    
                 </form>
             </div>
             <div>
-                <button id="fixed-button" onClick={this.returnToPrevious}>Go back to home.</button>
+                <button id="fixed-button" onClick={this.returnToPrevious}>Go back to home</button>
+                <button id="next-button" onClick={this.returnToPrevious}>Next Page</button>
             </div>
         </section>
         );

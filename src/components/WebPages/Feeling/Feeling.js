@@ -8,6 +8,11 @@ class Feeling extends Component {
     state = {
         feedback: {
             feeling: '',
+            understanding: '',
+            support: '',
+            comments: '',
+            flagged: true,
+            date: '',
         },
     }
 
@@ -25,13 +30,11 @@ class Feeling extends Component {
     }
 
     handleChange = (event) => {
-        let propertyName = event.target.name;
-        console.log(propertyName);
-        
+
         this.setState({
             feedback: {
                 ...this.state.feedback,
-                [propertyName]: event.target.value,
+                feeling: event.target.value,
             },
           })
         }
@@ -43,13 +46,17 @@ class Feeling extends Component {
             <div>
                 <form>
                     <label>How are you feeling today?</label> <br /> 
-                    <input name="rating" type="text" placeholder="Insert a number 1-5"/>
-                    
+                    <input placeholder="insert a number 1 - 5" 
+                           type="text" 
+                           onChange={this.handleChange} 
+                           name="name" ></input>
                 </form>
             </div>
             <div>
-                <button id="fixed-button" onClick={this.returnToPrevious}>Go back to home</button>
-                <button id="next-button" onClick={this.nextPage} onChange={this.handleChange} > Next Page </button>
+                <button id="fixed-button" 
+                        onClick={this.returnToPrevious}>Go back to home</button>
+                <button id="next-button" 
+                onClick={this.nextPage}> Next Page </button>
             </div>
         </section>
         );

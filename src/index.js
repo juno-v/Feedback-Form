@@ -9,7 +9,8 @@ import { createStore, /* combineReducers, */ applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const feedback = {
+ const feedback = {
+        id: '',
         feeling: '',
         understanding: '',
         support: '',
@@ -18,17 +19,19 @@ const feedback = {
         date: '',
 }
 
-const feedbackInfo = (state = feedback, action ) => {
+const feedbackInfo = (state = [feedback], action ) => {
     switch (action.type) {
-        case 'FEEDBACK': {
-          return {
-            ...state,
-            feeling: action.payload.feeling,
-          }
+        case 'FEELING': {
+          return [...state, action.payload]
         }
-        default: return state;
+        case 'GET_FEEDBACK': {
+          return action.payload;
+        }
+        default:
+        return state;
     }
 }
+
 
 // The store is the big JavaScript Object that holds all of the information for our application
 const storeInstance = createStore(

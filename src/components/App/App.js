@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route } from "react-router-dom";
+import { connect } from 'react-redux';
 
 import Feeling from '../WebPages/Feeling/Feeling';
 import Understanding from '../WebPages/Understanding/Understanding';
@@ -20,10 +21,9 @@ class App extends Component {
   })
   .then(
     (response) => {
-     /*  this.setState({
-        pizzaDisplay: response.data
-      }) */
     console.log(`got the response`, response.data);
+    const action = { type: 'GET_FEEDBACK', payload: response.data };
+        this.props.dispatch(action);
   })
   .catch((error) => {
     console.log('error in getting all pizzas', error);
@@ -51,4 +51,4 @@ componentDidMount() {
   }
 }
 
-export default App;
+export default connect()(App);

@@ -11,6 +11,8 @@ import Comments from '../WebPages/Comments/Comments';
 import Header from '../Header/Header';
 import Home from '../Home/Home'; 
 import Submit from '../WebPages/Submit/Submit';
+import Review from '../WebPages/Review/Review'; 
+import ThankYou from '../WebPages/ThankYou/ThankYou';
 
 class App extends Component {
 
@@ -46,6 +48,8 @@ class App extends Component {
         <Route path ="/understanding" component={Understanding} />  
         <Route path ="/support" component={Support} /> 
         <Route path ="/comments" component={Comments} /> 
+        <Route path ="/review" component={Review} />  
+        <Route path ="/thankyou" component={ThankYou} />  
 
         <Route exact path ="/submit"
         render={(props) => <Submit {...props} getAllFeedback={this.state.getAllFeedback} />}  /> 

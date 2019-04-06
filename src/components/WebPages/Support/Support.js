@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
+import Review from '../Review/Review';
 
 class Support extends Component {
 
@@ -45,6 +46,7 @@ class Support extends Component {
                            onChange={this.handleChange} 
                            name="name" ></input>
                 </form>
+                <Review /> 
             </div>
             <div>
                 <button id="fixed-button" 

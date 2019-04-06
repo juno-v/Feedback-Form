@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../Feeling/Feeling.css'
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
+import Review from '../Review/Review';
 
 class Understanding extends Component {
 
@@ -47,6 +48,7 @@ class Understanding extends Component {
                            onChange={this.handleChange} 
                            name="name" ></input>
                 </form>
+                <Review /> 
             </div>
             <div>
                 <button id="fixed-button" 

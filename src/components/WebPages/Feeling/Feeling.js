@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../Feeling/Feeling.css'
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
+import Review from '../Review/Review';
 
 class Feeling extends Component {
 
@@ -23,7 +24,7 @@ class Feeling extends Component {
         const action= {type: 'FEELING', payload: this.state.feedback.feeling}
         
         this.props.dispatch(action)
-        this.props.history.push('/understanding'); 
+        this.props.history.push('/understanding');  
     }
 
     handleChange = (event) => {
@@ -38,6 +39,8 @@ class Feeling extends Component {
 
 
     render() {
+        console.log(`this is the log of this.props.reduxState`, this.props.reduxState.feeling);
+        
         return (
         <section>
             <div>
@@ -48,7 +51,9 @@ class Feeling extends Component {
                            onChange={this.handleChange} 
                            name="name" ></input>
                 </form>
+                <Review /> 
             </div>
+            
             <div>
                 <button id="fixed-button" 
                         onClick={this.returnToPrevious}>Go back to home</button>

@@ -43,6 +43,9 @@ const feedbackInfo = (state = feedback, action ) => {
                 comments: action.payload,
             }
         }
+        case 'RESET': {
+            return state = feedback; 
+        }
         case 'GET_FEEDBACK': {
           return action.payload; 
         }

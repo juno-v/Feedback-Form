@@ -40,7 +40,7 @@ class Support extends Component {
             <section>
             <div>
                 <form>
-                    <label>Leave us a comment!</label> <br /> 
+                    <h1>Leave us some feedback in the comments! We'd love to hear.</h1> <br /> 
                     <input placeholder="enter text here" 
                            type="text" 
                            onChange={this.handleChange} 
@@ -50,7 +50,7 @@ class Support extends Component {
             </div>
             <div>
                 <button id="fixed-button" 
-                        onClick={this.returnToPrevious}>Go back to Understanding</button>
+                        onClick={this.returnToPrevious}>Go back to Supprt</button>
                 <button id="next-button" 
                 onClick={this.nextPage}> Next Page </button>
             </div>

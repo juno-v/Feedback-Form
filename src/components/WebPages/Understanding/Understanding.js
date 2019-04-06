@@ -27,7 +27,6 @@ class Understanding extends Component {
     }
 
     handleChange = (event) => {
-
         this.setState({
             feedback: {
                 ...this.state.feedback,
@@ -42,7 +41,7 @@ class Understanding extends Component {
         <section>
             <div>
                 <form>
-                    <label>How are you Understanding today?</label> <br /> 
+                    <h1>How are you understang things?</h1> <br /> 
                     <input placeholder="insert a number 1 - 5" 
                            type="text" 
                            onChange={this.handleChange} 

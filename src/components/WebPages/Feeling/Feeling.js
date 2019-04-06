@@ -45,7 +45,7 @@ class Feeling extends Component {
         <section>
             <div>
                 <form>
-                    <label>How are you Feeling today?</label> <br /> 
+                    <h1>How are you feeling today? </h1> <br /> 
                     <input placeholder="insert a number 1 - 5" 
                            type="text" 
                            onChange={this.handleChange} 

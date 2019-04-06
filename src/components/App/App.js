@@ -44,10 +44,10 @@ class App extends Component {
       <div className="App">
       <Header />
         <Route exact path="/" component={Home} /> 
-        <Route path ="/feeling" component={Feeling} />  
-        <Route path ="/understanding" component={Understanding} />  
-        <Route path ="/support" component={Support} /> 
-        <Route path ="/comments" component={Comments} /> 
+        <Route path ="/1" component={Feeling} />  
+        <Route path ="/2" component={Understanding} />  
+        <Route path ="/3" component={Support} /> 
+        <Route path ="/4" component={Comments} /> 
         <Route path ="/review" component={Review} />  
         <Route path ="/thankyou" component={ThankYou} />  
 

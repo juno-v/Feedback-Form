@@ -24,7 +24,7 @@ class Feeling extends Component {
         const action= {type: 'FEELING', payload: this.state.feedback.feeling}
         
         this.props.dispatch(action)
-        this.props.history.push('/understanding');  
+        this.props.history.push('/2');  
     }
 
     handleChange = (event) => {

@@ -21,7 +21,7 @@ class Support extends Component {
         console.log('Button clicked', this.state.feedback);
         const action= {type: 'SUPPORT', payload: this.state.feedback.support}
         this.props.dispatch(action)
-        this.props.history.push('/comments'); 
+        this.props.history.push('/4'); 
     }
 
     handleChange = (event) => {

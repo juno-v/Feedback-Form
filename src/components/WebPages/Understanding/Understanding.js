@@ -23,7 +23,7 @@ class Understanding extends Component {
         console.log('Button clicked', this.state.feedback);
         const action= {type: 'UNDERSTANDING', payload: this.state.feedback.understanding}
         this.props.dispatch(action)
-        this.props.history.push('/Support'); 
+        this.props.history.push('/3'); 
     }
 
     handleChange = (event) => {

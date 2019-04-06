@@ -6,7 +6,7 @@ class Home extends Component {
     handleClick = () => {
         alert('You are starting your feedback survey!');
         // change location here 
-        this.props.history.push('/feeling'); 
+        this.props.history.push('/1'); 
     }
 
     render() {

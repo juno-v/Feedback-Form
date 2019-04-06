@@ -13,7 +13,7 @@ class Support extends Component {
 
     returnToPrevious = (event) => {
         // change location here 
-        this.props.history.push('/support'); 
+        this.props.history.push('/4'); 
     }
 
     nextPage = (event) => {

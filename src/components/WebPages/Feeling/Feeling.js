@@ -7,12 +7,7 @@ class Feeling extends Component {
 
     state = {
         feedback: {
-            feeling: '',
-            understanding: '',
-            support: '',
-            comments: '',
-            flagged: true,
-            date: '',
+            feeling: '',  
         },
     }
 
@@ -25,8 +20,10 @@ class Feeling extends Component {
     nextPage = (event) => {
         event.preventDefault();
         console.log('Button clicked', this.state.feedback);
-        const action= {type: 'FEELING', payload: this.state.feedback}
+        const action= {type: 'FEELING', payload: this.state.feedback.feeling}
+        
         this.props.dispatch(action)
+        this.props.history.push('/understanding'); 
     }
 
     handleChange = (event) => {
@@ -45,7 +42,7 @@ class Feeling extends Component {
         <section>
             <div>
                 <form>
-                    <label>How are you feeling today?</label> <br /> 
+                    <label>How are you Feeling today?</label> <br /> 
                     <input placeholder="insert a number 1 - 5" 
                            type="text" 
                            onChange={this.handleChange} 

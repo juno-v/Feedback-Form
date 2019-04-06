@@ -10,6 +10,7 @@ import Support from '../WebPages/Support/Support';
 import Comments from '../WebPages/Comments/Comments';
 import Header from '../Header/Header';
 import Home from '../Home/Home'; 
+import Submit from '../WebPages/Submit/Submit';
 
 class App extends Component {
 
@@ -22,18 +23,18 @@ class App extends Component {
   .then(
     (response) => {
     console.log(`got the response`, response.data);
-    const action = { type: 'GET_FEEDBACK', payload: response.data };
-        this.props.dispatch(action);
+   /*  const action = { type: 'GET_FEEDBACK', payload: response.data };
+        this.props.dispatch(action); */
   })
   .catch((error) => {
-    console.log('error in getting all pizzas', error);
+    console.log('error in getting all feedback', error);
     alert('Something went wrong, try again later')
   })
   }
 
-componentDidMount() {
-  this.getAllFeedback(); 
-}
+  componentDidMount () {
+    this.getAllFeedback(); 
+  }
 
   render() {
     return (
@@ -45,6 +46,9 @@ componentDidMount() {
         <Route path ="/understanding" component={Understanding} />  
         <Route path ="/support" component={Support} /> 
         <Route path ="/comments" component={Comments} /> 
+
+        <Route exact path ="/submit"
+        render={(props) => <Submit {...props} getAllFeedback={this.state.getAllFeedback} />}  /> 
       </div>
     </Router>
     );

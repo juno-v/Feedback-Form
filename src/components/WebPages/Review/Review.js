@@ -25,8 +25,8 @@ class Review extends Component {
 
 
     render() {
-     let button = '';
-        if (this.props.reduxState.feelings !== '' || this.props.reduxState.understanding !== '' || this.props.reduxState.support !== '' || this.props.reduxState.comment !== '') {
+    let button = '';
+        if (this.props.reduxState.feeling !== '' && this.props.reduxState.understanding !== '' && this.props.reduxState.support !== '' && this.props.reduxState.comments !== '') {
             button = <button onClick={this.handleClick}>Submit Feedback</button>
         }
         else {
@@ -45,7 +45,7 @@ class Review extends Component {
                         <h3>Understanding: {this.props.reduxState.understanding}</h3>
                         <h3>Support: {this.props.reduxState.support}</h3>
                         <h3>Comments: {this.props.reduxState.comments}</h3>
-                        <button onClick={this.handleClick}> Submit </button> 
+                        {button}
                     </div>
                 </div>
                 <br />

@@ -13,6 +13,7 @@ import Home from '../Home/Home';
 import Submit from '../WebPages/Submit/Submit';
 import Review from '../WebPages/Review/Review'; 
 import ThankYou from '../WebPages/ThankYou/ThankYou';
+import Admin from '../WebPages/Admin/Admin'; 
 
 class App extends Component {
 
@@ -42,17 +43,16 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-      <Header />
+        <Header />
         <Route exact path="/" component={Home} /> 
         <Route path ="/1" component={Feeling} />  
         <Route path ="/2" component={Understanding} />  
         <Route path ="/3" component={Support} /> 
         <Route path ="/4" component={Comments} /> 
         <Route path ="/review" component={Review} />  
+        <Route path ="/submit" component={Submit} />  
         <Route path ="/thankyou" component={ThankYou} />  
-
-        <Route exact path ="/submit"
-        render={(props) => <Submit {...props} getAllFeedback={this.state.getAllFeedback} />}  /> 
+        <Route path ="/admin" component={Admin} />  
       </div>
     </Router>
     );

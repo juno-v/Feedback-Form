@@ -43,7 +43,6 @@ class Feeling extends Component {
         
         return (
         <section>
-            <div>
                 <form>
                     <h1>How are you feeling today? </h1> <br /> 
                     <input id="input"
@@ -54,14 +53,10 @@ class Feeling extends Component {
                            onChange={this.handleChange} 
                            name="name" ></input>
                 </form>
-                <Review /> 
-            </div>
-            
             <div>
-                <button id="fixed-button" 
-                        onClick={this.returnToPrevious}>Go back to home</button>
-                <button id="next-button" 
-                onClick={this.nextPage}> Next Page </button>
+            <button id="fixed-button" onClick={this.returnToPrevious}>Go back to home</button>
+            <button id="next-button" onClick={this.nextPage}> Next Page </button>
+                <Review /> 
             </div>
         </section>
         );

@@ -38,7 +38,6 @@ class Support extends Component {
     render() {
         return (
             <section>
-            <div>
                 <form>
                     <h1>How well do you feel Supported??</h1> <br /> 
                     <input id="input"
@@ -49,13 +48,10 @@ class Support extends Component {
                            onChange={this.handleChange} 
                            name="name" ></input>
                 </form>
-                <Review /> 
-            </div>
             <div>
-                <button id="fixed-button" 
-                        onClick={this.returnToPrevious}>Go back to Understanding</button>
-                <button id="next-button" 
-                onClick={this.nextPage}> Next Page </button>
+                <button id="next-button" onClick={this.nextPage}> Next Page </button>
+                <button id="fixed-button" onClick={this.returnToPrevious}>Go back to Understanding</button>
+                <Review /> 
             </div>
         </section>
         );

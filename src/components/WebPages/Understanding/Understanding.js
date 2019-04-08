@@ -39,7 +39,6 @@ class Understanding extends Component {
     render() {
         return (
         <section>
-            <div>
                 <form>
                     <h1>How are you understang things?</h1> <br /> 
                     <input id="input"
@@ -50,14 +49,11 @@ class Understanding extends Component {
                            onChange={this.handleChange} 
                            name="name" ></input>
                 </form>
-                <Review /> 
-            </div>
-            <div>
-                <button id="fixed-button" 
-                        onClick={this.returnToPrevious}>Go back to Feeling</button>
-                <button id="next-button" 
-                onClick={this.nextPage}> Next Page </button>
-            </div>
+                <div>
+                    <button id="fixed-button" onClick={this.returnToPrevious}>Go back to Feeling</button>
+                    <button id="next-button" onClick={this.nextPage}> Next Page </button>
+                    <Review /> 
+                </div>
         </section>
         );
     }

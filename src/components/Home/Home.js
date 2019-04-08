@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 
 class Home extends Component {
 
+    // home pages displays prior to starting the server which is at localhost:3000/1
     handleClick = () => {
         alert('You are starting your feedback survey!');
         // change location here 

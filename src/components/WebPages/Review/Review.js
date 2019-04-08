@@ -4,6 +4,9 @@ import axios from 'axios';
 
 class Review extends Component {
 
+    // if all feedback has values, on the click of the submit button will be able to be clicked. 
+    // on click of submit button all feedback data will be sent to the database through a POST request 
+    // the input values will also clear and return to the home page.
     handleClick = (event) => {
         event.preventDefault();
         this.props.history.push('/') 
@@ -31,6 +34,7 @@ class Review extends Component {
     }
 
     render() {
+    // an if statement to show the "submit button" if all input fields have been entered in something.
     let button = '';
         if (this.props.reduxState.feeling !== '' && this.props.reduxState.understanding !== '' && this.props.reduxState.support !== '' && this.props.reduxState.comments !== '') {
             button = <button onClick={this.handleClick}>Submit Feedback</button>

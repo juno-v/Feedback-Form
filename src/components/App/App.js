@@ -35,6 +35,7 @@ class App extends Component {
   })
   }
 
+  // get all feedback, test to see if code can connect with the database and retrieve a response. 
   componentDidMount () {
     this.getAllFeedback(); 
   }

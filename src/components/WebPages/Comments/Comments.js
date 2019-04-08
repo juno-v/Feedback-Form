@@ -5,6 +5,7 @@ import Review from '../Review/Review';
 
 class Support extends Component {
 
+    // set an intial state in order to create a setState with input values
     state = {
         feedback: {
             comments: '',  
@@ -24,6 +25,7 @@ class Support extends Component {
         this.props.history.push('/review'); 
     }
 
+    // create a new state copy where comment's value = what was typed into the inputs. 
     handleChange = (event) => {
 
         this.setState({

@@ -23,6 +23,13 @@ class Review extends Component {
 
     }
 
+    returnHome = () => {
+        this.props.history.push('/');
+        this.props.dispatch({
+            type: "RESET"
+        })
+    }
+
 
     render() {
     let button = '';
@@ -47,6 +54,9 @@ class Review extends Component {
                         <h3>Comments: {this.props.reduxState.comments}</h3>
                         {button}
                     </div>
+                <div>
+                    <button id="home" onClick={this.returnHome}>Quit & Return to Home</button>
+                </div>
                 </div>
                 <br />
             </div>

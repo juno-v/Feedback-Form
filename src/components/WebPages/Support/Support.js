@@ -41,8 +41,11 @@ class Support extends Component {
             <div>
                 <form>
                     <h1>How well do you feel Supported??</h1> <br /> 
-                    <input placeholder="insert a number 1 - 5" 
-                           type="text" 
+                    <input id="input"
+                           placeholder="insert a number 1 - 5" 
+                           type="number" 
+                           min="1"
+                           max="5"
                            onChange={this.handleChange} 
                            name="name" ></input>
                 </form>

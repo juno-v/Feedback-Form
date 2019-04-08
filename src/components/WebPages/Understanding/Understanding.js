@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../Feeling/Feeling.css'
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import Review from '../Review/Review';
+import '../Feeling/Webpages.css'
 
 class Understanding extends Component {
 
@@ -42,8 +42,11 @@ class Understanding extends Component {
             <div>
                 <form>
                     <h1>How are you understang things?</h1> <br /> 
-                    <input placeholder="insert a number 1 - 5" 
-                           type="text" 
+                    <input id="input"
+                           placeholder="insert a number 1 - 5" 
+                           type="number" 
+                           min="1"
+                           max="5"
                            onChange={this.handleChange} 
                            name="name" ></input>
                 </form>

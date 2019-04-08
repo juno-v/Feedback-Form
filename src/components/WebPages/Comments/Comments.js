@@ -41,7 +41,8 @@ class Support extends Component {
             <div>
                 <form>
                     <h1>Leave us some feedback in the comments! We'd love to hear.</h1> <br /> 
-                    <input placeholder="enter text here" 
+                    <input id="input"
+                           placeholder="enter text here" 
                            type="text" 
                            onChange={this.handleChange} 
                            name="name" ></input>

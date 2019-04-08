@@ -15,7 +15,7 @@ class Understanding extends Component {
     returnToPrevious = (event) => {
         alert('You are going back to home!');
         // change location here 
-        this.props.history.push('/feeling'); 
+        this.props.history.push('/1'); 
     }
 
     nextPage = (event) => {

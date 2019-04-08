@@ -30,7 +30,6 @@ class Review extends Component {
         })
     }
 
-
     render() {
     let button = '';
         if (this.props.reduxState.feeling !== '' && this.props.reduxState.understanding !== '' && this.props.reduxState.support !== '' && this.props.reduxState.comments !== '') {
@@ -39,8 +38,9 @@ class Review extends Component {
         else {
             button = <button disabled>Incomplete</button>
         }
-
+        
         return (
+        <section> 
             <div className="App">
 
 
@@ -60,6 +60,8 @@ class Review extends Component {
                 </div>
                 <br />
             </div>
+            
+        </section>
         );
     }
 }

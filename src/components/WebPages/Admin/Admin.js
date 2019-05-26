@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Admin extends Component {
+
+  componentDidMount = () => {
+    this.props.dispatch({type: 'GET_FEEDBACK'})
+  }
+
     render() {
         return (
-            <div>       
-                {JSON.stringify(this.props.reduxState.feedbackInfo)}    
-          {/* { this.props.reduxState.feedbackInfo.map( (feedback, index) => {
+            <div>        
+          { this.props.reduxState.getFeedback.map( (feedback, index) => {
             return (
               <div key={index}>
                 <p>Feeling: {feedback.feeling }</p>
@@ -16,8 +20,7 @@ class Admin extends Component {
               </div>
             )
           })
-        }    */}
-            <h1>in Admin page </h1>
+        }    
             </div>
         );
     }

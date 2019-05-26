@@ -34,9 +34,9 @@ switch (action.type) {
     case 'RESET': {
         return state = feedback; 
     }
-    case 'GET_FEEDBACK': {
-      return action.payload; 
-    }
+    // case 'GET_FEEDBACK': {
+    //   return action.payload; 
+    // }
     default:
     return state;
     }

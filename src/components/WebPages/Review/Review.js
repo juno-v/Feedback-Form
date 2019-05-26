@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import compose from 'recompose/compose';
 import axios from 'axios'; 
+
+// material ui imports 
+import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+
+// material ui styles 
+const styles = theme => ({
+    button: {
+      width: 200,
+   
+    },
+    text: {
+        width: 500,
+    }
+});
 
 class Review extends Component {
 
@@ -16,9 +33,9 @@ class Review extends Component {
             data: this.props.reduxState,
         }).then((response) => {
             console.log(`the response is in review btw`, response);
-            this.props.dispatch({
-                type: "RESET"
-            })
+            // this.props.dispatch({
+            //     type: "RESET"
+            // })
             
         }).catch((error) => {
             alert('something went wrong with your POST')
@@ -34,14 +51,23 @@ class Review extends Component {
     }
 
     render() {
-    // an if statement to show the "submit button" if all input fields have been entered in something.
-    let button = '';
-        if (this.props.reduxState.feeling !== '' && this.props.reduxState.understanding !== '' && this.props.reduxState.support !== '' && this.props.reduxState.comments !== '') {
-            button = <button onClick={this.handleClick}>Submit Feedback</button>
-        }
-        else {
-            button = <button disabled>Incomplete</button>
-        }
+
+        const { classes } = this.props;
+
+        // an if statement to show the "submit button" if all input fields have been entered in something.
+        let button = '';
+            if (this.props.reduxState.feeling !== '' && this.props.reduxState.understanding !== '' && this.props.reduxState.support !== '' && this.props.reduxState.comments !== '') {
+                button = <Button 
+                            variant="outlined"
+                            onClick={this.handleClick}
+                            >Submit Feedback</Button>
+            }
+            else {
+                button = <Button 
+                            variant="outlined"
+                            onClick={this.handleClick}
+                            disabled>Incomplete</Button>
+            }
         
         return (
         <section> 
@@ -58,8 +84,13 @@ class Review extends Component {
                         <h3>Comments: {this.props.reduxState.comments}</h3>
                         {button}
                     </div>
+                    <br/>
                 <div>
-                    <button id="home" onClick={this.returnHome}>Quit & Return to Home</button>
+                    <Button 
+                    variant="outlined"
+                    id="home" 
+                    onClick={this.returnHome}
+                    >Quit & Return to Home</Button>
                 </div>
                 </div>
                 <br />
@@ -74,4 +105,11 @@ const mapReduxStateToProps = (reduxState) => ({
     reduxState,
 });
 
-export default connect(mapReduxStateToProps)(Review);
+Review.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default compose(
+    withStyles(styles),
+    connect(mapReduxStateToProps, null)
+)(Review);

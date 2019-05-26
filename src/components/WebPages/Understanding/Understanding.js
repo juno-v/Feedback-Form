@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
+import compose from 'recompose/compose';
 import Review from '../Review/Review';
-import '../Feeling/Webpages.css'
+
+// material ui imports 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+
+// material ui styles 
+const styles = theme => ({
+    button: {
+      width: 200,
+   
+    },
+    text: {
+        width: 500,
+    }
+});
 
 class Understanding extends Component {
 
@@ -37,21 +54,25 @@ class Understanding extends Component {
 
 
     render() {
+
+        const { classes } = this.props;
+
         return (
         <section>
                 <form>
                     <h1>How are you understang things?</h1> <br /> 
-                    <input id="input"
-                           placeholder="insert a number 1 - 5" 
-                           type="number" 
-                           min="1"
-                           max="5"
-                           onChange={this.handleChange} 
-                           name="name" ></input>
+                    <TextField 
+                        className={classes.text}
+                        placeholder="insert a number 1 - 5" 
+                        type="number" 
+                        min="1"
+                        max="5"
+                        onChange={this.handleChange} 
+                        name="name" />
                 </form>
                 <div>
-                    <button id="fixed-button" onClick={this.returnToPrevious}>Go back to Feeling</button>
-                    <button id="next-button" onClick={this.nextPage}> Next Page </button>
+                    <Button id="fixed-button" onClick={this.returnToPrevious}>Go back to Feeling</Button>
+                    <Button id="next-button" onClick={this.nextPage}> Next Page </Button>
                     <Review /> 
                 </div>
         </section>
@@ -63,5 +84,11 @@ const mapReduxStateToProps = (reduxState) => ({
     reduxState,
 });
 
-export default connect(mapReduxStateToProps)(withRouter(Understanding));
+Understanding.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
+export default compose(
+    withStyles(styles),
+    connect(mapReduxStateToProps, null)
+)(withRouter(Understanding));

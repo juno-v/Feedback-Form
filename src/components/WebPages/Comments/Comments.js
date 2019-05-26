@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
+import compose from 'recompose/compose';
 import Review from '../Review/Review';
 
-class Support extends Component {
+// material ui imports 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-    // set an intial state in order to create a setState with input values
+// material ui styles 
+const styles = theme => ({
+    button: {
+      width: 200,
+   
+    },
+    text: {
+        width: 500,
+    }
+});
+
+class Comments extends Component {
+
     state = {
         feedback: {
             comments: '',  
@@ -38,19 +55,24 @@ class Support extends Component {
 
 
     render() {
+
+        const { classes } = this.props;
+
         return (
             <section>
                 <form>
                     <h1>Leave us some feedback in the comments! We'd love to hear.</h1> <br /> 
-                    <input id="input"
-                           placeholder="enter text here" 
-                           type="text" 
-                           onChange={this.handleChange} 
-                           name="name" ></input>
+                    <TextField 
+                        multiline 
+                        className={classes.text}
+                        placeholder="enter text here" 
+                        type="text" 
+                        onChange={this.handleChange} 
+                        name="name" />
                 </form>
             <div>
-                <button id="next-button" onClick={this.nextPage}> Next Page </button>
-                <button id="fixed-button" onClick={this.returnToPrevious}>Go back to Supprt</button>
+                <Button id="next-button" onClick={this.nextPage}> Next Page </Button>
+                <Button id="fixed-button" onClick={this.returnToPrevious}>Go back to Supprt</Button>
                 <Review /> 
             </div>
         </section>
@@ -59,9 +81,16 @@ class Support extends Component {
 }
 
 
+
 const mapReduxStateToProps = (reduxState) => ({
     reduxState,
 });
 
-export default connect(mapReduxStateToProps)(withRouter(Support));
+Comments.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
+export default compose(
+    withStyles(styles),
+    connect(mapReduxStateToProps, null)
+)(withRouter(Comments));

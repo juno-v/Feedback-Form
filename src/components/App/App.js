@@ -17,6 +17,11 @@ import Admin from '../WebPages/Admin/Admin';
 
 class App extends Component {
 
+  // get all feedback, test to see if code can connect with the database and retrieve a response. 
+  componentDidMount () {
+    this.getAllFeedback(); 
+  }
+
   getAllFeedback = () => {
     console.log('getting all feedback');
     axios({
@@ -25,19 +30,11 @@ class App extends Component {
   })
   .then(
     (response) => {
-    console.log(`got the response`, response.data);
-   /*  const action = { type: 'GET_FEEDBACK', payload: response.data };
-        this.props.dispatch(action); */
   })
   .catch((error) => {
     console.log('error in getting all feedback', error);
     alert('Something went wrong, try again later')
   })
-  }
-
-  // get all feedback, test to see if code can connect with the database and retrieve a response. 
-  componentDidMount () {
-    this.getAllFeedback(); 
   }
 
   render() {

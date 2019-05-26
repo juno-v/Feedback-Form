@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 class Admin extends Component {
     render() {
         return (
-            <div>
-              {/* attempted stretch goal here to display all feedback on /admin. unable to do so, have an error when uncommenting code below out  */}
-           {/*      { this.props.reduxState.feedbackInfo.map( (feedback, index) => {
+            <div>       
+                {JSON.stringify(this.props.reduxState.feedbackInfo)}    
+          {/* { this.props.reduxState.feedbackInfo.map( (feedback, index) => {
             return (
               <div key={index}>
                 <p>Feeling: {feedback.feeling }</p>
@@ -16,7 +16,7 @@ class Admin extends Component {
               </div>
             )
           })
-        } */}
+        }   */}
             <h1>in Admin page </h1>
             </div>
         );

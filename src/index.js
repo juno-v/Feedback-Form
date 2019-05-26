@@ -1,71 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App/App';
-import registerServiceWorker from './registerServiceWorker';
-
-// Redux
-import { createStore, /* combineReducers, */ applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 
- const feedback = {
-        feeling: '',
-        understanding: '',
-        support: '',
-        comments: '',
- }
+import rootReducer from './redux/reducers'; // imports ./redux/reducers/index.js
+import rootSaga from './redux/sagas'; // imports ./redux/sagas/index.js
 
-const feedbackInfo = (state = feedback, action ) => {
-    switch (action.type) {
-        case 'FEELING': {
-          return state = {
-              ...state,
-              feeling: action.payload,
-        }
-        }
-        case 'UNDERSTANDING': {
-            return state= {
-                ...state,
-                understanding: action.payload,
-            
-            }
-        }
-        case 'SUPPORT': {
-            return state= {
-                ...state,
-                support: action.payload,
-            }
-        }
-        case 'COMMENTS': {
-            return state= {
-                ...state,
-                comments: action.payload,
-            }
-        }
-        case 'RESET': {
-            return state = feedback; 
-        }
-        case 'GET_FEEDBACK': {
-          return action.payload; 
-        }
-        default:
-        return state;
-    }
-}
+import App from './components/App/App';
 
+const sagaMiddleware = createSagaMiddleware();
 
-// The store is the big JavaScript Object that holds all of the information for our application
-const storeInstance = createStore(
-        feedbackInfo,
-    applyMiddleware(logger),
-); 
+// this line creates an array of all of redux middleware you want to use
+// we don't want a whole ton of console logs in our production code
+// logger will only be added to your project if your in development mode
+const middlewareList = process.env.NODE_ENV === 'development' ?
+  [sagaMiddleware, logger] :
+  [sagaMiddleware];
 
-// Wrap our App in a Provider, this makes Redux available in
-// our entire application
+const store = createStore(
+  // tells the saga middleware to use the rootReducer
+  // rootSaga contains all of our other reducers
+  rootReducer,
+  // adds all middleware to our project including saga and logger
+  applyMiddleware(...middlewareList),
+);
+
+// tells the saga middleware to use the rootSaga
+// rootSaga contains all of our other sagas
+sagaMiddleware.run(rootSaga);
+
 ReactDOM.render(
-<Provider store={storeInstance}>
-<App />
-</Provider>, document.getElementById('root'));
-registerServiceWorker();
-
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);

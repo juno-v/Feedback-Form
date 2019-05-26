@@ -17,10 +17,9 @@ const styles = theme => ({
 
 class Home extends Component {
 
-    // home pages displays prior to starting the server which is at localhost:3000/1
+    // being feedback form 
     handleClick = () => {
-        alert('You are starting your feedback survey!');
-        // change location here 
+        //  next page 
         this.props.history.push('/1'); 
     }
 
@@ -31,6 +30,7 @@ class Home extends Component {
         return (
             <div>
                 <h1>Please fill out this feedback survey!</h1>
+                
                 <Button 
                     variant="contained" 
                     className={classes.button}

@@ -50,8 +50,7 @@ class Feeling extends Component {
         event.preventDefault();
 
         // dispatch
-        const action= {type: 'FEELING', payload: this.state.feedback.feeling}
-        this.props.dispatch(action)
+        this.props.dispatch({type: 'FEELING', payload: this.state.feedback})
 
         // next page 
         this.props.history.push('/2');  

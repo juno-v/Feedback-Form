@@ -24,23 +24,9 @@ class Review extends Component {
     // if all feedback has values, on the click of the submit button will be able to be clicked. 
     // on click of submit button all feedback data will be sent to the database through a POST request 
     // the input values will also clear and return to the home page.
-    handleClick = (event) => {
-        event.preventDefault();
-        this.props.history.push('/') 
-        axios({
-            method: 'POST',
-            url: '/feedback',
-            data: this.props.reduxState,
-        }).then((response) => {
-            console.log(`the response is in review btw`, response);
-            // this.props.dispatch({
-            //     type: "RESET"
-            // })
-            
-        }).catch((error) => {
-            alert('something went wrong with your POST')
-        })
-
+    handleClick = () => {
+        // dispatch
+        this.props.dispatch({type: 'POST_FEEDBACK', payload: this.state.feedback})
     }
 
     returnHome = () => {
@@ -58,12 +44,14 @@ class Review extends Component {
         let button = '';
             if (this.props.reduxState.feeling !== '' && this.props.reduxState.understanding !== '' && this.props.reduxState.support !== '' && this.props.reduxState.comments !== '') {
                 button = <Button 
+                            className={classes.button}
                             variant="outlined"
                             onClick={this.handleClick}
                             >Submit Feedback</Button>
             }
             else {
                 button = <Button 
+                            className={classes.button}
                             variant="outlined"
                             onClick={this.handleClick}
                             disabled>Incomplete</Button>
@@ -92,6 +80,7 @@ class Review extends Component {
                     onClick={this.returnHome}
                     >Quit & Return to Home</Button>
                 </div>
+
                 </div>
                 <br />
             </div>

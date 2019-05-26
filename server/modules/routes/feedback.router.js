@@ -21,11 +21,13 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const feedback = req.body;
-    const sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES 
-    ($1, $2, $3, $4)`;
+
+    const sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") 
+                    VALUES ($1, $2, $3, $4)`;
+
     pool.query(sqlText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comments])
         .then((result) => {
-            console.log(`Added new feedback to the database`, feedback);
+            console.log(`Added new feedback to the database`);
             res.sendStatus(201);
         })
         .catch((error) => {

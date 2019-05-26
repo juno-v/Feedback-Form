@@ -26,7 +26,7 @@ class Review extends Component {
     // the input values will also clear and return to the home page.
     handleClick = () => {
         // dispatch
-        this.props.dispatch({type: 'POST_FEEDBACK', payload: this.state.feedback})
+        this.props.dispatch({type: 'POST_FEEDBACK', payload: this.props.reduxState.feedbackInfo})
     }
 
     returnHome = () => {

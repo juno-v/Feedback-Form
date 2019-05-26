@@ -6,9 +6,9 @@ function* postFeedback(action) {
     console.log(`HIT editEntries`);
     console.log(`PAYLOAD: `, action.payload);
     
-    // const id = action.payload.entryId
+    const feedback = action.payload
     
-    // yield axios.put(`/entry/edit/${id}`, action.payload);
+    yield axios.post(`/feedback`, feedback);
     // yield window.location.reload();
     // put({ type: 'GET_ENTRIES' , payload: {id: action.payload.id}})
     }

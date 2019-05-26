@@ -16,7 +16,7 @@ class Admin extends Component {
               </div>
             )
           })
-        }   */}
+        }    */}
             <h1>in Admin page </h1>
             </div>
         );

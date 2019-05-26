@@ -10,7 +10,6 @@ import Support from '../WebPages/Support/Support';
 import Comments from '../WebPages/Comments/Comments';
 import Header from '../Header/Header';
 import Home from '../Home/Home'; 
-import Submit from '../WebPages/Submit/Submit';
 import Review from '../WebPages/Review/Review'; 
 import ThankYou from '../WebPages/ThankYou/ThankYou';
 import Admin from '../WebPages/Admin/Admin'; 
@@ -48,7 +47,6 @@ class App extends Component {
         <Route path ="/3" component={Support} /> 
         <Route path ="/4" component={Comments} /> 
         <Route path ="/review" component={Review} />  
-        <Route path ="/submit" component={Submit} />  
         <Route path ="/thankyou" component={ThankYou} />  
         <Route path ="/admin" component={Admin} />  
       </div>
